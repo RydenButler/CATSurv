@@ -5,10 +5,16 @@ library(Rcpp)
 #setwd("/Users/iramalis/Desktop/gitstuff/CATSurv")
 setwd("/Users/erinrossiter/Dropbox/Spring2016/Rclass/CATsurv")
 
-
 current.code <- as.package("catSurv")
 load_all(current.code)
 document(current.code)
+
+## Checking documentation
+?probability
+
+
+
+##
 
 ## Install the package
 install(pkg=current.code, local=TRUE, args="--no-multiarch")

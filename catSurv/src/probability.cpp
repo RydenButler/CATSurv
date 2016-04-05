@@ -2,7 +2,6 @@
 #include "Cat-class.h"
 using namespace Rcpp;
 
-
 void probability(Cat& cat, double theta, int question, std::vector<double>& ret_prob) {
   unsigned int diff_size = cat.poly_difficulty[question].size();
   double D = cat.D;
@@ -13,7 +12,6 @@ void probability(Cat& cat, double theta, int question, std::vector<double>& ret_
     ret_prob.push_back(guessing + (1 - guessing) * (exp_prob) / (1 + exp_prob));
   }
 }
-
 
 /* Overloaded since non-poly case needs to just return one double value, 
  * rather than a vector of doubles.
@@ -27,12 +25,21 @@ double probability(Cat & cat, double theta, int question){
   return guessing + (1 - guessing) * (exp_prob / (1 + exp_prob));
 }
 
-//' Find the weighted mean of several normal distributions
+//' Probabilities of the responses to a question given theta 
 //' 
-//' @param x A vector of values where the weighted normal is being evaluated
-//' @param means The means of the vaious normal distributions
-//' @param weights The weight assigned to each normal distribution
-//' @param sd A single number for the common standard deviation
+//' This function calculates the probabilities of a specific set of responses to a specific question for a specific value of \eqn{\theta}.
+//' 
+//' @param cat_df An object of \code{Cat} class
+//' @param t A double indicating the potential value for \eqn{\theta_j}
+//' @param q An integer indicating the index of the question
+//' @param ret_prob (For polytonomous implementation only) A double-vector where the calculations carried out by this function will be stored.
+//' 
+//' @return A vector consisting of the probability of a correct response for each respondent on item \eqn{i}.
+//' 
+//' @details The probability of a correct response for respondent \eqn{j} on item \eqn{i} is ....
+//' where \eqn{\theta_j} is respondent \eqn{j_i}'s position on the latent scle of interest, \eqn{a_i} is item \eqn{i}'s discrimination parameter,
+//'  \eqn{b_i} is item i's difficulty parameter, and \eqn{c_i} is item \eqn{i}'s guessing parameter.
+//'  
 //' @export
 // [[Rcpp::export]]
 List probability(S4 cat_df, NumericVector t, IntegerVector q){
