@@ -58,5 +58,4 @@ List probability(S4 cat_df, NumericVector t, IntegerVector q) {
 	}
 	DataFrame question_probs = DataFrame::create(Named("probabilities") = probs);
 	return List::create(Named("all.probabilities") = question_probs);
->>>>>>> origin/GroupBranch
 }
