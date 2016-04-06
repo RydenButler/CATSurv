@@ -19,3 +19,9 @@ CMakeLists.txt
 >>>>>>> Stashed changes
 
 *.so
+
+catSurv/src/catSurv.so
+
+catSurv/src/catSurv.so
+
+catSurv/src/probability.o
