@@ -1,6 +1,21 @@
+<<<<<<< Updated upstream
 
 *.o
 
 *.o
+=======
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+
+*.o
+
+CMakeLists.txt
+.idea
+
+
+>>>>>>> Stashed changes
 
 *.so

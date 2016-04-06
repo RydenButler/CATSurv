@@ -44,6 +44,7 @@ double probability(Cat &cat, double theta, int question) {
 //' @export
 // [[Rcpp::export]]
 List probability(S4 cat_df, NumericVector t, IntegerVector q) {
+  Rcout << "test" ;
 	// convert R inputs
 	Cat cat = constructCppCat(cat_df);
 	double theta = Rcpp::as<std::vector<double> >(t)[0];
