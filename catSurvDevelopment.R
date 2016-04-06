@@ -3,12 +3,15 @@ library(devtools)
 library(roxygen2)
 library(Rcpp)
 library(testthat)
-#setwd("/Users/iramalis/Desktop/gitstuff/CATSurv")
+setwd("/Users/iramalis/Desktop/gitstuff/CATSurv")
 setwd("/Users/erinrossiter/Dropbox/Spring2016/Rclass/CATSurv")
-
+?test_check
 current.code <- as.package("catSurv")
 load_all(current.code)
 document(current.code)
+
+library(catSurv)
+?probability
 
 ## Trying to write a test for binary probability
 ## Creating a cat object and filling in needed slots
