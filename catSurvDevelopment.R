@@ -10,45 +10,6 @@ current.code <- as.package("catSurv")
 load_all(current.code)
 document(current.code)
 
-## Trying to write a test for binary probability
-## Creating a cat object and filling in needed slots
-cat <- new("Cat")
-cat@discrimination <- c(2)
-cat@difficulty <- c(2)
-cat@guessing <- c(0)
-## Getting answer from probability
-probability(cat, t=1, q=1)
-
-## Writing a function in R to test the C++ function
-## Tried to copy format as C++ version
-probability_test <- function(cat, theta, question){
-  D = cat@D
-	discrimination = cat@discrimination[question]
-	difficulty = cat@difficulty[question]
-	guessing = cat@guessing[question]
-	exp_prob = exp(D * discrimination * (theta - difficulty))
-	probability <- guessing + (1-guessing) * (exp_prob / (1 + exp_prob))
-	return(probability)
-}
-probability_test(cat, 1, 1)
-
-## Trying to write it another way
-probability_test <- function(cat, theta, question){
-  c <- cat@guessing
-  D <- cat@D
-  a <- cat@discrimination
-  b <- cat@difficulty
-  x <- (D*a)*(theta - b)
-  probability <- c + ((1-c) * (exp(x)/(1+exp(x))))
-  return(probability)
-}
-probability_test(cat, 1, 1)
-
-
-
-
-
-
 ## Checking documentation
 ?probability
 probability
