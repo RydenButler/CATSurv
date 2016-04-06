@@ -2,6 +2,7 @@
 
 #include <vector>
 #include "Cat.h"
+#include "probability.h" // should we include this?
 
 double likelihood(Cat & cat, double theta, std::vector<int> items);
 

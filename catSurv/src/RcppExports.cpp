@@ -5,6 +5,18 @@
 
 using namespace Rcpp;
 
+// likelihood
+double likelihood(S4 cat_df, NumericVector t);
+RcppExport SEXP catSurv_likelihood(SEXP cat_dfSEXP, SEXP tSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< S4 >::type cat_df(cat_dfSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type t(tSEXP);
+    __result = Rcpp::wrap(likelihood(cat_df, t));
+    return __result;
+END_RCPP
+}
 // probability
 List probability(S4 cat_df, NumericVector t, IntegerVector q);
 RcppExport SEXP catSurv_probability(SEXP cat_dfSEXP, SEXP tSEXP, SEXP qSEXP) {

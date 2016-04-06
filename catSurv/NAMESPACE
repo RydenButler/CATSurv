@@ -2,6 +2,7 @@
 
 export(class.name)
 export(grmCat)
+export(likelihood)
 export(ltmCat)
 export(probability)
 export(storeAnswer)

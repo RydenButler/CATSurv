@@ -1,4 +1,5 @@
 #include "Cat.h"
+#include "probability.h"
 using namespace Rcpp;
 
 double likelihood(Cat & cat, double theta, std::vector<int> items) {
