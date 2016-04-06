@@ -32,7 +32,7 @@ double likelihood(Cat & cat, double theta, std::vector<int> items) {
 }
 
 
-//' Likelihood of having offered the specific response profile given theta
+//' Likelihood of offering specific response
 //' 
 //' This function returns the value of likelihood of a person with ability parameter \eqn{\theta} having offered the specific response profile stored in answers conditional on the item-level parameters. 
 //' 
@@ -40,9 +40,10 @@ double likelihood(Cat & cat, double theta, std::vector<int> items) {
 //' @param t A numeric for possible value of theta (position on the latent scale of interest)
 //' @param items A vector containing the index of the question items we want to include in the likelihood calculations
 //' 
-//' @return A vector value of likelihood of
+//' @return A value of the likelihood of each respondent offering spcific response
 //' 
-//' @details 
+//' @details Letting \eqn{q_i(\theta_j)=1-p_i(\theta_j)}, the likelihood function associated with the responses profile \eqn{y_j} is..
+//' \deqn{L(\theta_j|\mathbf{y}_{j})=\prod^{j}_{i=1}p_i(\theta_j)^{y_{ij}}q_i(\theta_j)^{(1-y_{ij}}}, where \eqn{y_j} is evaluated based only on the questions the respondet has actually had opportunity to answer
 //'  
 //' @export
 // [[Rcpp::export]]
