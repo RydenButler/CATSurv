@@ -31,6 +31,20 @@ double likelihood(Cat & cat, double theta, std::vector<int> items) {
   }
 }
 
+
+//' Likelihood of having offered the specific response profile given theta
+//' 
+//' This function returns the value of likelihood of a person with ability parameter \eqn{\theta} having offered the specific response profile stored in answers conditional on the item-level parameters. 
+//' 
+//' @param cat_df An object of \code{Cat} class
+//' @param t A numeric for possible value of theta (position on the latent scale of interest)
+//' @param items A vector containing the index of the question items we want to include in the likelihood calculations
+//' 
+//' @return A vector value of likelihood of
+//' 
+//' @details 
+//'  
+//' @export
 // [[Rcpp::export]]
 double likelihood(S4 cat_df, NumericVector t){
   Cat cat = constructCppCat(cat_df);
