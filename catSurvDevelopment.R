@@ -10,6 +10,7 @@ current.code <- as.package("catSurv")
 load_all(current.code)
 document(current.code)
 
+<<<<<<< HEAD
 library(catSurv)
 ?probability
 
@@ -52,6 +53,8 @@ probability_test(cat, 1, 1)
 
 
 
+=======
+>>>>>>> origin/GroupBranch
 ## Checking documentation
 ?probability
 probability
