@@ -1,4 +1,5 @@
 #include "Cat.h"
+#include <math.h>
 using namespace Rcpp;
 
 
@@ -19,9 +20,14 @@ void probability(Cat &cat, double theta, int question, std::vector<double> &ret_
  */
 double probability(Cat &cat, double theta, int question) {
 	double D = cat.D;
-	double discrimination = cat.discrimination[question];
-	double difficulty = cat.nonpoly_difficulty[question];
-	double guessing = cat.guessing[question];
+  
+	//double discrimination = cat.discrimination[question];
+	//double difficulty = cat.nonpoly_difficulty[question];
+	//double guessing = cat.guessing[question];
+	
+	double discrimination = 2;
+	double difficulty = 2;
+	double guessing = .5;
 	double exp_prob = exp(D * discrimination * (theta - difficulty));
 	return guessing + (1 - guessing) * (exp_prob / (1 + exp_prob));
 }
@@ -44,18 +50,18 @@ double probability(Cat &cat, double theta, int question) {
 //' @export
 // [[Rcpp::export]]
 List probability(S4 cat_df, NumericVector t, IntegerVector q) {
-  Rcout << "print" ;
+  // Rcout << "print" ;
 	// convert R inputs
 	Cat cat = constructCppCat(cat_df);
 	double theta = Rcpp::as<std::vector<double> >(t)[0];
 	int question = Rcpp::as<std::vector<int> >(q)[0];
-
+	
 	std::vector<double> probs;
 	if (cat.poly) {
 		probability(cat, theta, question, probs);
 	}
 	else {
-		probs.push_back(probability(cat, theta, question));
+	  probs.push_back(probability(cat, theta, question));
 	}
 	DataFrame question_probs = DataFrame::create(Named("probabilities") = probs);
 	return List::create(Named("all.probabilities") = question_probs);

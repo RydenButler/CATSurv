@@ -6,8 +6,8 @@ test_that("probability calculates correctly", {
   ## Creating a cat object and filling in needed slots
   cat <- new("Cat")
   cat@discrimination <- c(2)
-  cat@difficulty <- c(0)
-  cat@guessing <- c(0)
+  cat@difficulty <- c(2)
+  cat@guessing <- c(.5)
   
   ## R test function
   probability_test <- function(cat, theta, question){
