@@ -44,8 +44,13 @@ double probability(Cat &cat, double theta, int question) {
 //' @return A vector consisting of the probability of a correct response for each respondent on item \eqn{i}.
 //' 
 //' @details The probability of a correct response for respondent \eqn{j} on item \eqn{i} is ....
-//' where \eqn{\theta_j} is respondent \eqn{j_i}'s position on the latent scle of interest, \eqn{a_i} is item \eqn{i}'s discrimination parameter,
+//' where \eqn{\theta_j} is respondent \eqn{j}'s position on the latent scale of interest, \eqn{a_i} is item \eqn{i}'s discrimination parameter,
 //'  \eqn{b_i} is item i's difficulty parameter, and \eqn{c_i} is item \eqn{i}'s guessing parameter.
+//'  
+//'  Note: this function is overloaded, due to different output types of binary vs polytomous implementations (outputs single value for binary implementation,
+//'  vector of values for polytomous implementation)
+//'  
+//'  Note: the function for polytomous implementation does not return values, but rather alters the object ret_prob in memory
 //'  
 //' @export
 // [[Rcpp::export]]
