@@ -52,6 +52,8 @@ double probability(Cat &cat, double theta, int question) {
 //'  
 //'  Note: the function for polytomous implementation does not return values, but rather alters the object ret_prob in memory
 //'  
+//'  Note: I'm not sure whether the above two notes are true...
+//'  
 //' @export
 // [[Rcpp::export]]
 List probability(S4 cat_df, NumericVector t, IntegerVector q) {
