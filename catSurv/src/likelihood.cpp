@@ -39,12 +39,11 @@ double likelihood(Cat & cat, double theta, std::vector<int> items) {
 //' 
 //' @param cat_df An object of \code{Cat} class
 //' @param t A numeric for possible value of theta (position on the latent scale of interest)
-//' @param items A vector containing the index of the question items we want to include in the likelihood calculations
 //' 
-//' @return A value of the likelihood of each respondent offering spcific response
+//' @return A value of the likelihood of each respondent having offered the provided response profile
 //' 
 //' @details Letting \eqn{q_i(\theta_j)=1-p_i(\theta_j)}, the likelihood function associated with the responses profile \eqn{y_j} is..
-//' \deqn{L(\theta_j|\mathbf{y}_{j})=\prod^{j}_{i=1}p_i(\theta_j)^{y_{ij}}q_i(\theta_j)^{(1-y_{ij}}}, where \eqn{y_j} is evaluated based only on the questions the respondet has actually had opportunity to answer
+//' \deqn{L(\theta_j|\mathbf{y}_{j})=\prod^{j}_{i=1}p_i(\theta_j)^{y_{ij}}q_i(\theta_j)^{(1-y_{ij}}}, where \eqn{y_j} is evaluated based only on the questions the respondent has actually had the opportunity to answer
 //'  
 //' @export
 // [[Rcpp::export]]
